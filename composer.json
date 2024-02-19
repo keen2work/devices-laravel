@@ -1,0 +1,54 @@
+{
+    "name": "emedia/devices-laravel",
+    "description": "Package for device authentication",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+		{
+			"name": "Elegant Media",
+			"email": "info@elegantmedia.com.au"
+		}
+    ],
+    "require": {
+        "php": "^8.1",
+        "elegantmedia/oxygen-foundation": "^3.0"
+    },
+	"require-dev": {
+        "mockery/mockery": "^1.5",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.0",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+	"autoload": {
+		"psr-4": {
+			"EMedia\\Devices\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"App\\": "laravel/app",
+			"Tests\\": "tests/"
+		},
+		"files": [
+			"vendor/mockery/mockery/library/helpers.php",
+			"vendor/elegantmedia/oxygen-foundation/tests/Traits/MocksScoutEngines.php"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"sort-packages": true
+	},
+	"scripts": {
+		"test": "phpunit",
+		"check-style": "phpcs src tests",
+		"fix-style": "phpcbf src tests"
+	},
+    "extra": {
+        "laravel": {
+            "providers": [
+				"EMedia\\Devices\\DevicesServiceProvider"
+            ]
+        }
+    }
+}
